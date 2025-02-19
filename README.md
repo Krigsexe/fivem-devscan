@@ -2,55 +2,53 @@ Resource Loader
 
 Description
 
-Resource Loader est un script Lua pour FiveM qui scanne, lit et interprète les fichiers de ressources du serveur (fxmanifest.lua et _resource.lua). Il permet de gérer les dépendances entre ressources, de vérifier les fichiers, et d'enregistrer les informations dans une base de données via oxmysql. Un système de logs est également inclus pour faciliter le suivi et le débogage.
+Resource Loader is a Lua script for FiveM that scans, reads, and interprets server resource files (fxmanifest.lua and _resource.lua). It manages dependencies between resources, verifies files, and records information in a database via oxmysql. A logging system is also included to facilitate tracking and debugging.
 
-Fonctionnalités
+Features
 
-🔍 Scan automatique des ressources au démarrage du serveur.
+🔍 Automatic scan of resources at server startup.
 
-📂 Lecture des fichiers fxmanifest.lua et _resource.lua.
+📂 Reading of fxmanifest.lua and _resource.lua files.
 
-📑 Tri des fichiers en fonction de leur type (server_script, client_script, shared_script).
+📑 Sorting files based on their type (server_script, client_script, shared_script).
 
-🔄 Vérification des dépendances entre ressources.
+🔄 Dependency verification between resources.
 
-🚫 Détection et exclusion des scripts obfusqués ou malveillants.
+🚫 Detection and exclusion of obfuscated or malicious scripts.
 
-🛠 Enregistrement des informations dans une base de données via oxmysql.
+🛠 Saving information to a database via oxmysql.
 
-📝 Gestion des logs dans logs.txt et affichage en console.
+📝 Log management in logs.txt and console display.
 
-♻ Purge automatique des entrées obsolètes de la base de données.
+♻ Automatic purging of obsolete database entries.
 
-Prérequis
+Requirements
 
-🛠 FiveM (FXServer) installé.
+🛠 FiveM (FXServer) installed.
 
-📦 oxmysql configuré et fonctionnel.
+📦 oxmysql configured and functional.
 
-🗃 Base de données MySQL accessible.
+🗃 Accessible MySQL database.
 
-📜 Ressources avec fxmanifest.lua ou _resource.lua.
+📜 Resources with fxmanifest.lua or _resource.lua.
 
 Installation
 
-Cloner ce dépôt dans votre serveur FiveM :
+Clone this repository to your FiveM server:
 
-git clone https://github.com/votre-utilisateur/resource_loader.git
+git clone https://github.com/krigsexe/fivem-devscan.git
 
-Déplacer le script dans le dossier resources/ :
+Move the script to the resources/ folder:
 
-mv resource_loader /chemin/vers/FXServer/resources/
+mv resource_loader /path/to/FXServer/resources/
 
-Ajouter ensure resource_loader dans server.cfg.
+Add ensure resource_loader to server.cfg.
 
-Configurer la base de données en important la requête SQL fournie.
+Set up the database by importing the provided SQL query.
 
-Configuration de la base de données
+Database Configuration
 
-Exécutez cette requête SQL pour créer la table nécessaire :
-
--------------------------------------------------------------------------------------
+Run this SQL query to create the necessary table:
 
 CREATE TABLE IF NOT EXISTS `resources` (
     `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -61,35 +59,33 @@ CREATE TABLE IF NOT EXISTS `resources` (
     PRIMARY KEY (`id`)
 );
 
--------------------------------------------------------------------------------------
-
 Logs
 
-Les logs sont enregistrés dans logs.txt et affichés en console. Ils incluent :
+Logs are saved in logs.txt and displayed in the console. They include:
 
-📢 INFO : Informations générales.
+📢 INFO: General information.
 
-✅ SUCCESS : Actions réussies.
+✅ SUCCESS: Successful actions.
 
-⚠ WARNING : Problèmes détectés (dépendances manquantes, scripts obfusqués, etc.).
+⚠ WARNING: Detected issues (missing dependencies, obfuscated scripts, etc.).
 
-❌ ERROR : Erreurs critiques.
+❌ ERROR: Critical errors.
 
-Prochaines étapes
+Next Steps
 
-📌 Amélioration des performances pour un scan plus rapide.
+📌 Performance improvements for faster scanning.
 
-🔄 Ajout d'une interface de gestion des ressources.
+🔄 Addition of a resource management interface.
 
-🛡 Renforcement de la sécurité des scripts exécutés.
+🛡 Enhanced security for executed scripts.
 
 Contribution
 
-Les contributions sont les bienvenues ! Forkez le projet, proposez des améliorations ou corrigez des bugs.
+Contributions are welcome! Fork the project, suggest improvements, or fix bugs.
 
-Licence
+License
 
-Ce projet est sous licence MIT. Utilisation libre et ouverte.
+This project is under the MIT license. Free and open use.
 
-🚀 Développé pour faciliter la gestion des ressources sur FiveM !
+🚀 Developed to facilitate resource management on FiveM!
 
